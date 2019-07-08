@@ -7,7 +7,14 @@ require "httparty"
 
 enable :sessions
 
-user = User.new
+class User
+  attr_accessor :first_name, :last_name, :email, :date_of_birth, :screen_name
+  @first_name = first_name
+  @last_name = last_name
+  @email = email
+  @date_of_birth = date_of_birth
+  @screen_name = screen_name
+end
 
 get "/signup" do
   erb :signup
