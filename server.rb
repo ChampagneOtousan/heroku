@@ -15,7 +15,12 @@ class User < ActiveRecord::Base
   # @screen_name = screen_name
 end
 
-ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: "./db.sqlite3")
+# LOCAL
+# ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: "./db.sqlite3")
+# HEROKU
+
+require "active_record"
+ActiveRecord::Base.establish_connection(ENV["DATABASE_URL"])
 
 get "/" do
   erb :home
