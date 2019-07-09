@@ -9,6 +9,7 @@
     <a href="login">Log in</a>
     <a href="signup">Sign up</a>
     <% if session[:user]%>
+    <% end %>
     <script src="main.js"></script>
   </body>
 </html>
@@ -17,5 +18,5 @@
 <form class="" action="signup" method="post">
   <input type="text" name="username" placeholder="Username">
   <input type="password" name="password" placeholder="Password">
-  <input type="submit" value="CREATE">
+  <input type="submit" value="post">
 </form>
