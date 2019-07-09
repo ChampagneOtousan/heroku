@@ -6,8 +6,16 @@
     <title>El Blogüero</title>
   </head>
   <body>
-
-    <%= yield %>
+    <a href="login">Log in</a>
+    <a href="signup">Sign up</a>
+    <% if session[:user]%>
     <script src="main.js"></script>
   </body>
 </html>
+
+<a href="/">Home</a>
+<form class="" action="signup" method="post">
+  <input type="text" name="username" placeholder="Username">
+  <input type="password" name="password" placeholder="Password">
+  <input type="submit" value="CREATE">
+</form>

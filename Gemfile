@@ -1,10 +1,6 @@
-source "https://rubygems.org" do
-
+source "https://rubygems.org"
   gem "sinatra"
   gem "sinatra-activerecord"
   gem "sinatra-flash"
   gem "sqlite3"
   gem "rake"
-  gem "httparty"
-
-end
