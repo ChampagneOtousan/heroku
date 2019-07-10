@@ -6,17 +6,23 @@ require "sinatra/activerecord"
 
 enable :sessions
 
-class User < ActiveRecord::Base
+if ENV['RACK_ENV']
+  ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
+else
+  set :database, {adapter: "sqlite3", database: "database.sqlite3"}
+end
+
+# class User < ActiveRecord::Base
   # attr_accessor :first_name, :last_name, :email, :date_of_birth, :screen_name
   # @first_name = first_name
   # @last_name = last_name
   # @email = email
   # @date_of_birth = date_of_birth
   # @screen_name = screen_name
-end
+# end
 
 # LOCAL
-ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: "./db.sqlite3")
+# ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: "./db.sqlite3")
 # HEROKU
 
 # require "active_record"
