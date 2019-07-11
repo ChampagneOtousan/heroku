@@ -22,20 +22,22 @@ end
 # require "active_record"
 # ActiveRecord::Base.establish_connection(ENV["DATABASE_URL"])
 
-get "/" do
-  erb :home
-end
 
 get "/signup" do
   erb :signup
 end
 
 post "/signup" do
-  user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], birthday: params[:birthday], username: params[:username], password: params[:password])
-  user.save
+  @user = User.new(params)
+  @user.save
   redirect "/"
 end
 
+get "/" do
+
+  # @user_name = "#{@user.first_name} #{@user.last_name}"
+  erb :home
+end
 get "/login" do
   erb :login
 end
@@ -43,8 +45,10 @@ end
 post "/login" do
   username = params[:username]
   given_password = params[:password]
-  user = User.find_by(username: username)
-  session[:user] = user
+  @user = User.find_by(username: username)
+  session[:user] = @user
+  session[:name] = @user.username
+  @user_name = "#{@user.first_name} #{@user.last_name}"
   redirect "/"
 end
 
