@@ -12,14 +12,8 @@ else
   set :database, {adapter: "sqlite3", database: "database.sqlite3"}
 end
 
-# class User < ActiveRecord::Base
-  # attr_accessor :first_name, :last_name, :email, :date_of_birth, :screen_name
-  # @first_name = first_name
-  # @last_name = last_name
-  # @email = email
-  # @date_of_birth = date_of_birth
-  # @screen_name = screen_name
-# end
+class User < ActiveRecord::Base
+end
 
 # LOCAL
 # ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: "./db.sqlite3")
