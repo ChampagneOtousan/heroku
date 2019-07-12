@@ -2,13 +2,29 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" href="main.css">
+    <title>El Blogüero</title>
   </head>
   <body>
+
     <% if session[:user]%>
     <a href="/logout">Log out</a>
     <a href="/signup">Sign up</a>
     <% end %>
     <%=yield%>
+
+    <% if session[:user]%>
+    <h1>Welcome, <%=session[:name]%> </h1>
+    <form class="my-form">
+      <p>Upload File(s) or input text</p>
+      <input type="message" name="Message">
+      <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+      <label class="button" for="fileElem">Select File(s)</label>
+      <button type="submit" name="Post"></button>
+    </form>
+    <% end %>
+
+
+    <script src="main.js"></script>
   </body>
 </html>
