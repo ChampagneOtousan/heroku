@@ -5,11 +5,10 @@
     <title></title>
   </head>
   <body>
-    <a href="login">Log in</a>
-    <a href="signup">Sign up</a>
-    <div id="drop-area">
-    </div>
-
+    <% if session[:user]%>
+    <a href="/logout">Log out</a>
+    <a href="/signup">Sign up</a>
+    <% end %>
     <%=yield%>
   </body>
 </html>

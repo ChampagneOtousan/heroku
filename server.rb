@@ -47,6 +47,7 @@ post "/login" do
   given_password = params[:password]
   @user = User.find_by(username: username)
   session[:user] = @user
+  p session[:user]
   session[:name] = @user.username
   @user_name = "#{@user.first_name} #{@user.last_name}"
   redirect "/"
@@ -54,6 +55,11 @@ end
 
 get "/profile" do
   erb :profile
+end
+
+post "/logout" do
+  session.clear
+  redirect "/login"
 end
 
 get "/settings/account" do

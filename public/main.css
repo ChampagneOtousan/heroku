@@ -1,5 +1,6 @@
 body {
-  background-color: rgb(40, 59, 245);
+  justify-content: center;
+  background-color: rgb(141, 150, 233);
 }
 
 #drop-area {
